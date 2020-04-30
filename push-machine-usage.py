@@ -2,8 +2,9 @@ import psutil
 import socket    
 from pymongo import MongoClient
 import datetime
+import os
 
-client = MongoClient(host='localhost', port=27017)
+client = MongoClient(host=os.environ['MONGO_DB_IP'], port=int(os.environ['MONGO_DB_PORT']))
 db = client.utilization
 
 result = {}
